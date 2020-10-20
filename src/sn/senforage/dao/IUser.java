@@ -8,5 +8,6 @@ public interface IUser {
 	
 	public int add(User user);
 	public List<User> list();
+	public User getUserByEmail(String email, String password);
 
 }
