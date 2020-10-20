@@ -45,8 +45,7 @@ public class UserImpl implements IUser{
 		Query query = em.createQuery("select u from User u where u.email=:email AND u.password=:password");
 		query.setParameter("email", email);
 		query.setParameter("password", password);
-		System.out.println(email);
-		System.out.println(password);
+		
 		try {
 			return (User) query.getSingleResult();
 		} catch (Exception e) {

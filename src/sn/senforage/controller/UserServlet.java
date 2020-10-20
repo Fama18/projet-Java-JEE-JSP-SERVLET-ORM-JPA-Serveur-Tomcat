@@ -2,12 +2,14 @@ package sn.senforage.controller;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import sn.senforage.dao.ClientImpl;
 import sn.senforage.dao.IClient;
@@ -34,15 +36,24 @@ public class UserServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+		HttpSession session = req.getSession();
+		
 		String email = req.getParameter("email");
         String password = req.getParameter("password");
         System.out.println(email);
         System.out.println(password);
         
         User ok = userdao.getUserByEmail(email,password);
-        resp.getWriter().println(ok);
         
-        
+        if(ok!=null) {
+        	session.setAttribute("nomF", ok.getNom());
+        	RequestDispatcher rd = req.getRequestDispatcher("/view/user/add.jsp");
+        	rd.forward(req,resp);
+        }
+        else {
+        	resp.sendRedirect("view/user/login.jsp");
+        }
+              
 	}
 
 }
