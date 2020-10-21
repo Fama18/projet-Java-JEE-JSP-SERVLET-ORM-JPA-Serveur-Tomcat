@@ -17,7 +17,7 @@ import sn.senforage.dao.IUser;
 import sn.senforage.dao.UserImpl;
 import sn.senforage.entities.User;
 
-@WebServlet(urlPatterns = {"/", "/User"}, name = "user")
+@WebServlet(urlPatterns = {"/User"}, name = "user")
 public class UserServlet extends HttpServlet{
 	
 	private IUser userdao;
@@ -40,15 +40,15 @@ public class UserServlet extends HttpServlet{
 		
 		String email = req.getParameter("email");
         String password = req.getParameter("password");
-        System.out.println(email);
-        System.out.println(password);
         
         User ok = userdao.getUserByEmail(email,password);
         
         if(ok!=null) {
         	session.setAttribute("nomF", ok.getNom());
-        	RequestDispatcher rd = req.getRequestDispatcher("/view/user/add.jsp");
+        	RequestDispatcher rd = req.getRequestDispatcher("/view/client/add.jsp");
         	rd.forward(req,resp);
+        	// permet depuis une servlet de rediriger la paire requête/réponse HTTP 
+        	//vers une autre servlet ou vers une page JSP.
         }
         else {
         	resp.sendRedirect("view/user/login.jsp");
