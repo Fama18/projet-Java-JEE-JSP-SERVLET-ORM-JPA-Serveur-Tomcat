@@ -12,7 +12,21 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                  Tableau
+                  	<table class="table table-striped">
+						<tr>
+							<th scope="col">ID</th>
+							<th scope="col">Nom Famille</th>
+							<th scope="col">Adresse</th>
+							<th scope="col">Telephone</th>
+							<th scope="col">Village</th>
+						</tr>
+		
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+					   </tr>
+					</table>
                 </div>
               </div>
             </div>
@@ -53,6 +67,8 @@
 				
 
                 </div>
+              
+              
               </div>
             </div>
           </div>

@@ -42,7 +42,8 @@ public class ClientServlet extends HttpServlet{
         client.setTelephone(telephone);
         
         int ok = clientdao.add(client);
-        resp.getWriter().println(ok);
+        //resp.getWriter().println(ok);
+        doGet(req,resp);
         
 	}
 

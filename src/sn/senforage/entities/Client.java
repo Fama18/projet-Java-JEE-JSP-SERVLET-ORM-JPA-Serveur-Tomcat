@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Client implements Serializable{
@@ -20,7 +22,12 @@ public class Client implements Serializable{
 	private String adresse;
 	@Column
 	private String telephone;
-	
+	@ManyToOne
+    @JoinColumn(name = "village_id")
+    private Village village = new Village();
+	@ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user = new User();
 	
 	public Client() {
 		super();
@@ -75,5 +82,27 @@ public class Client implements Serializable{
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
+
+
+	public Village getVillage() {
+		return village;
+	}
+
+
+	public void setVillage(Village village) {
+		this.village = village;
+	}
+
+
+	public User getUser() {
+		return user;
+	}
+
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
+	
 	
 }
