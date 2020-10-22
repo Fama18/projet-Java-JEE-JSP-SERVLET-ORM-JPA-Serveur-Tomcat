@@ -25,6 +25,7 @@ public class VillageServlet extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setAttribute("listVillage", villagedao.list());
 		req.getRequestDispatcher("view/village/add.jsp").forward(req, resp);
 	}
 	
@@ -37,7 +38,7 @@ public class VillageServlet extends HttpServlet{
         village.setNom(nom);
         
         int ok = villagedao.add(village);
-        resp.getWriter().println(ok);
+        doGet(req,resp);
 	}
 
 }

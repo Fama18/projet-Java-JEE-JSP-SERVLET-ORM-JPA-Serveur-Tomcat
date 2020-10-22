@@ -37,4 +37,9 @@ public class VillageImpl implements IVillage{
 		return em.createQuery("SELECT v FROM Village v").getResultList();
 	}
 
+	@Override
+	public Village getVillageById(int id) {
+		return (Village) em.createQuery("SELECT v FROM Village v WHERE v.id=:id").setParameter("id", id).getSingleResult();
+	}
+
 }

@@ -47,7 +47,7 @@ public class UserServlet extends HttpServlet{
         	session.setAttribute("nomF", ok.getNom());
         	RequestDispatcher rd = req.getRequestDispatcher("/view/client/add.jsp");
         	rd.forward(req,resp);
-        	// permet depuis une servlet de rediriger la paire requête/réponse HTTP 
+        	// forward permet depuis une servlet de rediriger la paire requête/réponse HTTP 
         	//vers une autre servlet ou vers une page JSP.
         }
         else {

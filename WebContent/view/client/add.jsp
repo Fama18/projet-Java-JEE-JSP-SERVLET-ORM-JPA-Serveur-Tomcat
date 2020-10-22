@@ -1,4 +1,5 @@
 <jsp:include page="../../header.jsp"></jsp:include>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!-- Content Row -->
 
           <div class="row">
@@ -22,9 +23,15 @@
 						</tr>
 		
 						<tr>
-							<td></td>
-							<td></td>
-							<td></td>
+							<c:forEach items="${listc}" var="c">
+								<tr>
+									<td>${c.id}</td>
+									<td>${c.nomFamille}</td>
+									<td>${c.adresse}</td>
+									<td>${c.telephone}</td>
+									<td>${c.village.nom}</td>
+								</tr>
+							</c:forEach>
 					   </tr>
 					</table>
                 </div>
@@ -58,6 +65,9 @@
 					    	<label>Sélectionner un village : </label>
 					    	<select class="form-control" name="village_id">
 					    		<option>--Sélectionner un village--</option>
+					    		<c:forEach items="${listV}" var="v">
+					    		<option value="${v.id}">${v.nom}</option>
+					    		</c:forEach>
 					    	</select>
 					    </div>
 					    <div>

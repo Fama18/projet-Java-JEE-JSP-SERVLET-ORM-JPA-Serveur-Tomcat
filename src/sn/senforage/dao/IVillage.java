@@ -8,5 +8,6 @@ public interface IVillage {
 	
 	public int add(Village village);
 	public List<Village> list();
+	public Village getVillageById(int id);
 
 }
