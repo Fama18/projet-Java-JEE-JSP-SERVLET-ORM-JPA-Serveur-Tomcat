@@ -42,7 +42,7 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-			    	<form method="post" action="Client">
+			    	<form method="post" action="Village">
 			    		<div class="form-group">
 					    	<label>Nom du village : </label>
 					    	<input class="form-control" type="text" name="nom"/>
